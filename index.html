@@ -91,21 +91,8 @@
   }
   @keyframes fade { to { opacity: 1; } }
 
-  footer {
-    position: fixed;
-    bottom: 2rem;
-    left: 0;
-    right: 0;
-    font-size: 0.72rem;
-    line-height: 1.5;
-    opacity: 0;
-    animation: fade 0.9s ease 2.6s forwards;
-  }
-  footer .name { font-weight: 500; color: var(--paper); }
-  footer .detail { color: var(--fog); }
-
   @media (prefers-reduced-motion: reduce) {
-    .wordmark span, p.motto, p.soon, footer {
+    .wordmark span, p.motto, p.soon {
       animation: none;
       opacity: 1;
       transform: none;
@@ -121,9 +108,5 @@
     <p class="motto">walk strong</p>
     <p class="soon">Coming soon</p>
   </main>
-  <footer>
-    <div class="name">Walstron Limited</div>
-    <div class="detail">Kingston, Jamaica &middot; Jamaica Stock Exchange: WAL</div>
-  </footer>
 </body>
 </html>
