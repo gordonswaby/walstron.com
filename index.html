@@ -4,86 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Walstron</title>
-<meta name="description" content="Walstron. Something new is coming.">
+<meta name="description" content="Walstron Limited. Kingston, Jamaica. Coming soon.">
+<meta name="theme-color" content="#0A0A0A">
 <meta property="og:title" content="Walstron">
-<meta property="og:description" content="Something new is coming.">
+<meta property="og:description" content="Walstron Limited. Kingston, Jamaica. Coming soon.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://walstron.com">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23f5f3ee' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='27' y='47' font-family='Inter,-apple-system,BlinkMacSystemFont,sans-serif' font-size='42' font-weight='600' fill='%23FAFAFA' text-anchor='middle'%3Ew%3C/text%3E%3Ctext x='41' y='47' font-family='Inter,-apple-system,BlinkMacSystemFont,sans-serif' font-size='42' font-weight='600' fill='%238B6F47'%3E.%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz@1,8..60&display=swap" rel="stylesheet">
 <style>
+  /* Palette: Ink, Paper, Fog, Bronze. Bronze appears once, as the period. */
   :root {
-    --ink: #070b14;
-    --paper: #f5f3ee;
-    --muted: rgba(245, 243, 238, 0.55);
-    --hairline: rgba(245, 243, 238, 0.18);
+    --ink: #0A0A0A;
+    --paper: #FAFAFA;
+    --fog: #6B6B6B;
+    --bronze: #8B6F47;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
   body {
     background: var(--ink);
     color: var(--paper);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden;
   }
-  .glow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(60% 50% at 50% 110%, rgba(64, 96, 255, 0.16), transparent 70%),
-      radial-gradient(40% 35% at 80% -10%, rgba(120, 80, 255, 0.10), transparent 70%);
+  ::selection { background: var(--bronze); color: var(--paper); }
+
+  h1.wordmark {
+    font-size: clamp(2.75rem, 11vw, 5.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--paper);
   }
-  main {
-    position: relative;
-    padding: 2rem;
-    animation: rise 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  .wordmark span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.3em);
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .wordmark span:nth-child(1) { animation-delay: 0.15s; }
+  .wordmark span:nth-child(2) { animation-delay: 0.21s; }
+  .wordmark span:nth-child(3) { animation-delay: 0.27s; }
+  .wordmark span:nth-child(4) { animation-delay: 0.33s; }
+  .wordmark span:nth-child(5) { animation-delay: 0.39s; }
+  .wordmark span:nth-child(6) { animation-delay: 0.45s; }
+  .wordmark span:nth-child(7) { animation-delay: 0.51s; }
+  .wordmark span:nth-child(8) { animation-delay: 0.57s; }
+  .wordmark span.period {
+    color: var(--bronze);
+    transform: none;
+    animation: land 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 1.05s forwards;
   }
   @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  h1 {
-    font-size: clamp(2.4rem, 8vw, 4.5rem);
-    font-weight: 300;
-    letter-spacing: 0.32em;
-    text-indent: 0.32em; /* balances the letter-spacing on the last glyph */
+  @keyframes land {
+    from { opacity: 0; transform: scale(0.4); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  p.motto {
+    margin-top: 1.4rem;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--fog);
+    opacity: 0;
+    animation: fade 0.9s ease 1.7s forwards;
+  }
+  p.soon {
+    margin-top: 4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-indent: 0.25em;
     text-transform: uppercase;
+    color: var(--fog);
+    opacity: 0;
+    animation: fade 0.9s ease 2.2s forwards;
   }
-  .rule {
-    width: 56px;
-    height: 1px;
-    background: var(--hairline);
-    margin: 2rem auto;
-  }
-  p.tag {
-    font-size: clamp(0.85rem, 2.5vw, 1rem);
-    letter-spacing: 0.28em;
-    text-indent: 0.28em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
+  @keyframes fade { to { opacity: 1; } }
+
   footer {
     position: fixed;
-    bottom: 1.5rem;
+    bottom: 2rem;
     left: 0;
     right: 0;
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    color: rgba(245, 243, 238, 0.3);
+    line-height: 1.5;
+    opacity: 0;
+    animation: fade 0.9s ease 2.6s forwards;
+  }
+  footer .name { font-weight: 500; color: var(--paper); }
+  footer .detail { color: var(--fog); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wordmark span, p.motto, p.soon, footer {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>
 </head>
 <body>
-  <div class="glow"></div>
   <main>
-    <h1>Walstron</h1>
-    <div class="rule"></div>
-    <p class="tag">Coming soon</p>
+    <h1 class="wordmark" aria-label="walstron.">
+      <span aria-hidden="true">w</span><span aria-hidden="true">a</span><span aria-hidden="true">l</span><span aria-hidden="true">s</span><span aria-hidden="true">t</span><span aria-hidden="true">r</span><span aria-hidden="true">o</span><span aria-hidden="true">n</span><span class="period" aria-hidden="true">.</span>
+    </h1>
+    <p class="motto">walk strong</p>
+    <p class="soon">Coming soon</p>
   </main>
-  <footer>&copy; 2026 Walstron. All rights reserved.</footer>
+  <footer>
+    <div class="name">Walstron Limited</div>
+    <div class="detail">Kingston, Jamaica &middot; Jamaica Stock Exchange: WAL</div>
+  </footer>
 </body>
 </html>
